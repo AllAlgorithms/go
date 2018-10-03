@@ -1,17 +1,19 @@
-package datastructures
+package stack
 
 import (
 	"errors"
+
+	"github.com/AllAlgorithms/go/datastructures/list"
 )
 
 // Stack a simple linked-list stack
 type Stack struct {
-	l *List
+	l *list.List
 }
 
 // Init inits an empty stack
 func (s *Stack) Init() {
-	l := &List{}
+	l := &list.List{}
 	l.Init()
 	s.l = l
 }

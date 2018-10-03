@@ -1,19 +1,21 @@
-package datastructures
+package queue
 
 import (
 	"errors"
+
+	"github.com/AllAlgorithms/go/datastructures/stack"
 )
 
 // Queue a two-stack queue
 type Queue struct {
-	r *Stack
-	s *Stack
+	r *stack.Stack
+	s *stack.Stack
 }
 
 // Init inits an empty queue
 func (q *Queue) Init() {
-	r := &Stack{}
-	s := &Stack{}
+	r := &stack.Stack{}
+	s := &stack.Stack{}
 	r.Init()
 	s.Init()
 	q.r = r
@@ -75,7 +77,7 @@ func (q *Queue) String() string {
 		return q.s.String()
 	}
 
-	t := &Stack{}
+	t := &stack.Stack{}
 	t.Init()
 	for !q.r.IsEmpty() {
 		v, _ := q.r.Pop()

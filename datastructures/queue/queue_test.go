@@ -1,4 +1,4 @@
-package datastructures
+package queue
 
 import (
 	"errors"

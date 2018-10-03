@@ -1,20 +1,11 @@
-package main
+package insertion
 
 /*
  * Insertion sort - https://en.wikipedia.org/wiki/Insertion_sort
  */
 
-import "fmt"
-
-func main() {
-
-	arr := []int{46, 24, 33, 10, 2, 81, 50}
-	fmt.Println("Unsorted array")
-	fmt.Println(arr)
-
+func Sort(arr []int) {
 	if len(arr) <= 1 {
-		fmt.Println("Sorted array")
-		fmt.Println(arr)
 		return
 	}
 
@@ -26,7 +17,4 @@ func main() {
 			}
 		}
 	}
-
-	fmt.Println("Sorted array")
-	fmt.Println(arr)
 }

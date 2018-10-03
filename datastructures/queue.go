@@ -1,4 +1,4 @@
-package opeval
+package datastructures
 
 import (
 	"errors"

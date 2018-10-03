@@ -2,15 +2,12 @@
 //
 // Author: Carlos Abraham Hernandez
 
-package main
-import "fmt"
+package bubblesort
 
-func main() {
-
-	arr := []int{46, 24, 33, 10, 2, 81, 50}
-
-	fmt.Println("Unsorted Array")
-	fmt.Println(arr)
+func Sort(arr []int) []int{
+	if len(arr) <= 1 {
+		return arr
+	}
 
 	n := len(arr) - 1
 
@@ -27,6 +24,5 @@ func main() {
 		n -= 1
 	}
 
-	fmt.Println("Sorted Array")
-	fmt.Println(arr)
+	return arr
 }

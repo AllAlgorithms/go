@@ -1,7 +1,7 @@
 // Go implementation of Shell Sort
 // Author: Donald Shell (1959)
 
-package main
+package shell
 
 import (
 	"fmt"
@@ -15,7 +15,11 @@ func main() {
 	}
 
 	fmt.Printf("Initial array is: %#v\n\n", arr)
+	Sort(arr)
+	fmt.Println("Sorted result: ", arr)
+}
 
+func Sort(arr []int) {
 	for d := int(len(arr) / 2); d > 0; d /= 2 {
 		for i := d; i < len(arr); i++ {
 			for j := i; j >= d && arr[j-d] > arr[j]; j -= d {
@@ -23,6 +27,4 @@ func main() {
 			}
 		}
 	}
-
-	fmt.Println("Sorted result: ", arr)
 }

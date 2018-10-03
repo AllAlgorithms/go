@@ -19,15 +19,12 @@
 
 ## Contents
 
-- [Arithmetic Analysis](arithmetic-analysis)
-- [File Transfer Protocol](file-transfer-protocol)
-- [Greedy Algorithms](greedy-algorithms)
+- [Greedy Algorithms](greedyalgorithms)
 - [Graphs](graphs)
 - [Math](math)
-- [Neutral Network](neutral-network)
 - [Ciphers](ciphers)
-- [Data Structures](data-structures)
-- [Dynamic Programming](dynamic-programming)
+- [Data Structures](datastructures)
+- [Dynamic Programming](dynamicprogramming)
 - [Hashes](hashes)
 - [Searches](searches)
 - [Sorting](sorting)

@@ -13,7 +13,8 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/AllAlgorithms/go/datastructures"
+	"github.com/AllAlgorithms/go/datastructures/queue"
+	"github.com/AllAlgorithms/go/datastructures/stack"
 )
 
 func checkParenthesis(eq string, status int) bool {
@@ -46,9 +47,9 @@ func isPrecedent(x string, y string) bool {
 	return true
 }
 
-func toPostfix(eq string) (*datastructures.Queue, error) {
-	q := &datastructures.Queue{}
-	s := &datastructures.Stack{}
+func toPostfix(eq string) (*queue.Queue, error) {
+	q := &queue.Queue{}
+	s := &stack.Stack{}
 
 	q.Init()
 	s.Init()
@@ -121,7 +122,7 @@ func Evaluate(eq string) (float64, error) {
 	if err != nil {
 		return 0.0, fmt.Errorf("opeval - %s", err.Error())
 	}
-	s := &datastructures.Stack{}
+	s := &stack.Stack{}
 	s.Init()
 	for !q.IsEmpty() {
 		x, _ := q.Dequeue()

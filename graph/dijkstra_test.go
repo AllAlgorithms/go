@@ -1,19 +1,39 @@
 package dijkstra
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
-func TestSort(t *testing.T) {
-	testVelue := []int{46, 24, 33, 10, 2, 81, 50}
-	expected := []int{2, 10, 24, 33, 46, 50, 81}
-	actual := Sort(testVelue)
+func TestDijkstra(t *testing.T) {
+	t.Run("Dijkstra test", func(t *testing.T) {
+		graph := CreateGraph(5)
 
-	if len(testVelue) != len(actual) {
-		t.Fatalf("Expected that output array length %d, actual %d", len(expected), len(actual))
-	}
+		graph.AppendEdge(0, 1, 3)
+		graph.AppendEdge(1, 3, 2)
+		graph.AppendEdge(3, 4, 9)
+		graph.AppendEdge(0, 2, 8)
+		graph.AppendEdge(2, 4, 3)
+		graph.AppendEdge(1, 2, 3)
 
-	for i := range expected {
-		if expected[i] != actual[i] {
-			t.Fatalf("\nExpected sorted array: %v\nActual sorted array:   %v", expected, actual)
+		/*
+			           3      2      9
+					0 ---> 1 ---> 3 ---> 4
+					|	   |             A
+					|	   | 3           |
+					|	   |             | 1
+					|	   V             |
+					L ---> 2 ----------> J
+					   8          2
+		*/
+
+		expected := 9
+		actual := graph.Dijkstra(0, 4)
+
+		if !reflect.DeepEqual(expected, actual) {
+			t.Errorf("Expected %+v, actual %+v", expected, actual)
 		}
-	}
+
+	})
+
 }

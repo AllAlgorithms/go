@@ -1,10 +1,12 @@
 package dijkstra
 
+import (
+	"../datastructures/priorityqueue"
+)
+
 type Graph struct {
-	Edges        [][]int
-	NumOfVertex  int
-	SourceNode   int
-	TerminalNode int
+	Edges       [][]int
+	NumOfVertex int
 }
 
 func CreateGraph(numOfVertex int) *Graph {
@@ -25,11 +27,31 @@ func (graph *Graph) Dijkstra(from int, to int) int {
 	numOfVertex := graph.NumOfVertex
 	isFixed := make([]bool, numOfVertex)
 	minCost := 0
-	vertexCosts := make([][]int, numOfVertex)
 
-	node = from
+	paths := make([][]int, numOfVertex)
+	queue := priorityqueue.PriorityQueue{}
+	queue.Push(from, 0)
 
-	for 
+	for queue.Length() > 0 {
+		node, cost := queue.Pop()
+		if node == to {
+			minCost = cost
+			break
+		}
+		if isFixed[node] {
+			continue
+		}
+
+		for i, edge := range graph.Edges[node] {
+			if edge > 0 {
+				queue.Push(i, edge+cost)
+				paths[i] = append(paths[i], node)
+			}
+		}
+
+		isFixed[node] = true
+
+	}
 
 	return minCost
 }

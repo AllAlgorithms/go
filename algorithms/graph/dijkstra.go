@@ -50,7 +50,6 @@ func (graph *Graph) Dijkstra(from int, to int) int {
 		}
 
 		isFixed[node] = true
-
 	}
 
 	return minCost
